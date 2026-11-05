@@ -10,6 +10,12 @@
 
 <div class="example-wrapper">
     <h1>🦙 Bienvenue sur le meilleur site d'Art De Rue ! 🦙</h1>
-
+    {% for photo in photos %}
+        <tr>
+            <td><img src= "/{{ photo.nomFichier }}" alt="Photo de {{ photo.nomFichier }}" width="100"></td>
+        </tr>
+    {% endfor %}
 </div>
+
+
 {% endblock %}

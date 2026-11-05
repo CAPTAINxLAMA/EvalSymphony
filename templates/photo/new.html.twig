@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Photo{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle Photo</h1>
+
+    {{ include('photo/_form.html.twig') }}
+    <br>
+    <a class="btn btn-secondary" href="{{ path('app_photo_index') }}">Retour</a>
+{% endblock %}

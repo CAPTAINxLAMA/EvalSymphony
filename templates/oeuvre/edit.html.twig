@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'Oeuvre{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'Oeuvre</h1>
+
+    {{ include('oeuvre/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+    <br>
+    <a class="btn btn-secondary" href="{{ path('app_oeuvre_index') }}">Retour</a>
+    <br>
+    <br>
+    {{ include('oeuvre/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Oeuvre{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle Oeuvre</h1>
+
+    {{ include('oeuvre/_form.html.twig') }}
+    <br>
+
+    <a class="btn btn-secondary" href="{{ path('app_oeuvre_index') }}">Retour</a>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{{ path('app_artiste_new') }}">Ajouter un Artiste</a>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{{ path('app_lieu_new') }}">Ajouter un Lieu</a>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="{{ path('app_technique_new') }}">Ajouter une Technique</a>
+
+{% endblock %}

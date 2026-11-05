@@ -20,8 +20,11 @@ class ArtisteType extends AbstractType
             ->add('nationalite')
             ->add('oeuvre', EntityType::class, [
                 'class' => Oeuvre::class,
-                'choice_label' => 'id',
+                'choice_label' => 'titre',
                 'multiple' => true,
+                'by_reference' => false,
+                'attr' => ['class' => 'form-select', 'size' => 1, 'style' => 'max-width: 300px;',],
+                'required' => false,
             ])
         ;
     }

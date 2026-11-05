@@ -33,7 +33,7 @@ final class ArtisteController extends AbstractController
             $entityManager->persist($artiste);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_artiste_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_oeuvre_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('artiste/new.html.twig', [
