@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Artiste index{% endblock %}
+{% block title %}Les Artistes{% endblock %}
 
 {% block body %}
-    <h1>Artiste index</h1>
+    <h1>Les Artistes</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Pseudonyme</th>
-                <th>NomReel</th>
+                <th>Nom Réel</th>
                 <th>Bio</th>
-                <th>Nationalite</th>
-                <th>actions</th>
+                <th>Nationalité</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +25,20 @@
                 <td>{{ artiste.bio }}</td>
                 <td>{{ artiste.nationalite }}</td>
                 <td>
-                    <a href="{{ path('app_artiste_show', {'id': artiste.id}) }}">show</a>
-                    <a href="{{ path('app_artiste_edit', {'id': artiste.id}) }}">edit</a>
+                    <a class="btn btn-warning" href="{{ path('app_artiste_edit', {'id': artiste.id}) }}">Modifier</a>
+                    {{ include('artiste/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun artiste trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_artiste_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('app_artiste_new') }}">Ajouter un nouvel Artiste</a>
+
+    <a class="btn btn-secondary" href="{{ path('app_oeuvre_new') }}">Retour</a>
+
 {% endblock %}

@@ -42,14 +42,6 @@ final class LieuController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_lieu_show', methods: ['GET'])]
-    public function show(Lieu $lieu): Response
-    {
-        return $this->render('lieu/show.html.twig', [
-            'lieu' => $lieu,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_lieu_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Lieu $lieu, EntityManagerInterface $entityManager): Response
     {

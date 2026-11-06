@@ -42,14 +42,6 @@ final class ArtisteController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_artiste_show', methods: ['GET'])]
-    public function show(Artiste $artiste): Response
-    {
-        return $this->render('artiste/show.html.twig', [
-            'artiste' => $artiste,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_artiste_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Artiste $artiste, EntityManagerInterface $entityManager): Response
     {
@@ -72,6 +64,10 @@ final class ArtisteController extends AbstractController
     public function delete(Request $request, Artiste $artiste, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$artiste->getId(), $request->getPayload()->getString('_token'))) {
+            if (!$artiste->getOeuvre()->isEmpty()) {
+                $this->addFlash('danger', 'Impossible de supprimer cet artiste : il est lié à des œuvres.');
+                return $this->redirectToRoute('app_artiste_index');
+            }
             $entityManager->remove($artiste);
             $entityManager->flush();
         }

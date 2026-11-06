@@ -44,14 +44,6 @@ final class PhotoController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_photo_show', methods: ['GET'])]
-    public function show(Photo $photo): Response
-    {
-        return $this->render('photo/show.html.twig', [
-            'photo' => $photo,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_photo_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Photo $photo, EntityManagerInterface $entityManager): Response
     {

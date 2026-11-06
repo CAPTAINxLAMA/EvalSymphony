@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Lieu index{% endblock %}
+{% block title %}Les Lieux{% endblock %}
 
 {% block body %}
-    <h1>Lieu index</h1>
+    <h1>Les Lieux</h1>
 
     <table class="table">
         <thead>
@@ -14,7 +14,7 @@
                 <th>Quartier</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,17 +27,20 @@
                 <td>{{ lieu.latitude }}</td>
                 <td>{{ lieu.longitude }}</td>
                 <td>
-                    <a href="{{ path('app_lieu_show', {'id': lieu.id}) }}">show</a>
-                    <a href="{{ path('app_lieu_edit', {'id': lieu.id}) }}">edit</a>
+                    <a class="btn btn-warning" href="{{ path('app_lieu_edit', {'id': lieu.id}) }}">Modifier</a>
+                    {{ include('lieu/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun Lieu trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_lieu_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('app_lieu_new') }}">Ajouter un nouveau Lieu</a>
+
+    <a class="btn btn-secondary" href="{{ path('app_oeuvre_new') }}">Retour</a>
+
 {% endblock %}

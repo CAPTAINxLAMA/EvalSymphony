@@ -42,14 +42,6 @@ final class TechniqueController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_technique_show', methods: ['GET'])]
-    public function show(Technique $technique): Response
-    {
-        return $this->render('technique/show.html.twig', [
-            'technique' => $technique,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_technique_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Technique $technique, EntityManagerInterface $entityManager): Response
     {

@@ -42,14 +42,6 @@ final class OeuvreController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_oeuvre_show', methods: ['GET'])]
-    public function show(Oeuvre $oeuvre): Response
-    {
-        return $this->render('oeuvre/show.html.twig', [
-            'oeuvre' => $oeuvre,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_oeuvre_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Oeuvre $oeuvre, EntityManagerInterface $entityManager): Response
     {
